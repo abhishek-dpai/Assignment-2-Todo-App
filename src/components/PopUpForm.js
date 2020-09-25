@@ -1,7 +1,8 @@
 import React from "react";
 import '../App.css';
 
-const PopUpForm = (priority, setPriority, date, setDate, description, setDescription,todosDetails, setTodosDetails, id) => {
+const PopUpForm = (props) => {
+    const {priority, setPriority, date, setDate, description, setDescription,todosDetails, setTodosDetails, id}=props;
     const inputDescriptionHandler=(e)=>{
         setDescription(e.target.value);
     }
@@ -12,7 +13,8 @@ const PopUpForm = (priority, setPriority, date, setDate, description, setDescrip
         setPriority(e.target.value);
     }
     const submitDetailsHandler=(e)=>{
-        console.log(e);
+        e.preventDefault();
+        console.log(todosDetails);
          setTodosDetails([...todosDetails, {description: description, date:date, priority:priority  }]);
     }
     
