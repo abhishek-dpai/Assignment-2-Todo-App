@@ -1,6 +1,7 @@
 import React,{useState} from "react";
 import PopUpForm from "./PopUpForm";
-const Form = ({ inputText, setInputText, todosDetails, setTodosDetails, todos, setTodos ,setStatus}) => {
+const Form = ({ priority, setPriority,  date, setDate, description, setDescription,inputText, setInputText, todosDetails, 
+              setTodosDetails, todos, setTodos ,setStatus}) => {
   //props
   const newId=Math.floor(Math.random() * 1000000); // there might be collision
   const [clickedCounter,setClickedCounter]=useState(0);
@@ -34,7 +35,16 @@ const Form = ({ inputText, setInputText, todosDetails, setTodosDetails, todos, s
            <i className="fas fa-plus-square"></i>
       </button>
       {
-        clickedCounter!==0?<PopUpForm todosDetails={todosDetails} setTodosDetails={setTodosDetails} id={newId} />:""
+        clickedCounter!==0?<PopUpForm 
+                                    description={description}
+                                    setDescription={setDescription}
+                                    date={date}
+                                    setDate={setDate}
+                                    priority={priority}
+                                    setPriority={setPriority}
+                                    todosDetails={todosDetails} 
+                                    setTodosDetails={setTodosDetails}
+                                     id={newId} />: "" 
     
       }
       

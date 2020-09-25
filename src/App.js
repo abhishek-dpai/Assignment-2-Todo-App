@@ -6,6 +6,9 @@ import TodoList from "./components/TodoList"
 function App() {
   //state
   const [inputText, setInputText] = useState(" ");
+  const [description, setDescription] = useState(" ");
+  const [date, setDate] = useState(" ");
+  const [priority, setPriority] = useState(" ");
   const [todos, setTodos] = useState([]);
   const [todosDetails, setTodosDetails] = useState([]);
   const [status, setStatus] = useState("all");
@@ -55,6 +58,12 @@ function App() {
         <h1> Abhishek's Todo App </h1>
       </header>
       <Form 
+        description={description}
+        setDescription={setDescription}
+        date={date}
+        setDate={setDate}
+        priority={priority}
+        setPriority={setPriority}
         setStatus={setStatus}
         todosDetails={todosDetails}
         setTodosDetails={setTodosDetails} 
