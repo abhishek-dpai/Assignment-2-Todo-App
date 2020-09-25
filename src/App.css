@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 body {
-  /* background-color:  linear-gradient(to right, rgb(0, 159, 255), rgb(236, 47, 75)); */
   background-image: linear-gradient(to right, rgb(0, 159, 255), rgb(236, 47, 75));
   color: white;
   font-family: "Poppins", sans-serif;
@@ -29,13 +28,13 @@ form button {
   background: white;
 }
 form button {
-  color: #ff6f47;
-  background: #f7fffe;
+  color:#e8ffe8;
+  background: #3b5441;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 form button:hover {
-  background: #ff6f47;
+  background:#e7b3b3;
   color: white;
 }
 .todo-container {
@@ -133,7 +132,7 @@ select {
   pointer-events: none;
 }
 /* Transition */
-/*
+/*  
 .select:hover::after {
   transform: scale(1.5);
 }

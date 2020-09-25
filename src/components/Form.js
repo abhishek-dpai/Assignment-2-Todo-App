@@ -1,11 +1,10 @@
 import React from "react";
 const Form = ({ inputText, setInputText, todos, setTodos ,setStatus}) => {
   const inputTextHandler = (e) => {
-    console.log(e.target.value);
     setInputText(e.target.value);
   };
   const submitTodoHandler = (e) => {
-    e.preventDefault();
+    e.preventDefault(); // stops browser from refreshing
     setTodos([...todos,
     { text: inputText, completed: false, id: Math.floor(Math.random() * 1000000) }
     ]);
