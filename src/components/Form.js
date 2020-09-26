@@ -40,7 +40,9 @@ const Form = ({ priority, setPriority,  date, setDate, description, setDescripti
            <i className="fas fa-plus-square"></i>
       </button>
       {
-        clickedCounter!==0?<PopUpForm 
+        // clickedCounter!==0?<PopUpForm 
+        clickedCounter ? <PopUpForm 
+
                                     description={description}
                                     setDescription={setDescription}
                                     date={date}
@@ -49,7 +51,7 @@ const Form = ({ priority, setPriority,  date, setDate, description, setDescripti
                                     setPriority={setPriority}
                                     todosDetails={todosDetails} 
                                     setTodosDetails={setTodosDetails}
-                                     id={newId} />: "" 
+                                     id={newId} />: null
     
       }
       
