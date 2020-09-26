@@ -57,6 +57,8 @@ function App() {
       <header>
         <h1> Abhishek's Todo App </h1>
       </header>
+      {/* move the functions for setting data inside form component*/}
+      {/* pass only data ex: description, date, priority, etc. */}
       <Form 
         description={description}
         setDescription={setDescription}
@@ -70,7 +72,8 @@ function App() {
         todos={todos} 
         setTodos={setTodos} 
         inputText={inputText} 
-        setInputText={setInputText} />
+        setInputText={setInputText} 
+        />
       <TodoList 
         filteredTodos={filteredTodos} 
         todos={todos} 
