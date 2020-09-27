@@ -3,13 +3,18 @@ import PopUpForm from "./PopUpForm";
 const Form = ({ priority, setPriority,  date, setDate, description, setDescription,inputText, setInputText, todosDetails, 
               setTodosDetails, todos, setTodos ,setStatus}) => {
   //props
+
+  //if not sure on id then use UUID or increamental number, 
+  //you can store the newest number in localstorage for you case to increase accordingly next time
   const newId=Math.floor(Math.random() * 1000000); // there might be collision
+  
   const [clickedCounter,setClickedCounter]=useState(0);
+  
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };
   const submitTodoHandler = (e) => {
-    console.log("newId="+newId);
+    console.log("newId=",newId);//use comma, it logs the actual data structure, with + it logs as string.
     console.log("clickedCounter= "+clickedCounter);
     e.preventDefault(); // stops browser from refreshing
     setTodos([...todos,
@@ -35,7 +40,9 @@ const Form = ({ priority, setPriority,  date, setDate, description, setDescripti
            <i className="fas fa-plus-square"></i>
       </button>
       {
-        clickedCounter!==0?<PopUpForm 
+        // clickedCounter!==0?<PopUpForm 
+        clickedCounter ? <PopUpForm 
+
                                     description={description}
                                     setDescription={setDescription}
                                     date={date}
@@ -44,7 +51,7 @@ const Form = ({ priority, setPriority,  date, setDate, description, setDescripti
                                     setPriority={setPriority}
                                     todosDetails={todosDetails} 
                                     setTodosDetails={setTodosDetails}
-                                     id={newId} />: "" 
+                                     id={newId} />: null
     
       }
       

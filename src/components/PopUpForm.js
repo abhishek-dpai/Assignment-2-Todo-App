@@ -12,6 +12,9 @@ const PopUpForm = (props) => {
     const inputPriorityHandler=(e)=>{
         setPriority(e.target.value);
     }
+
+    //generate todosDetail here and add it to todo list
+    //only submitDetailsHandler handler will be needed to pass here in props
     const submitDetailsHandler=(e)=>{
         e.preventDefault();
         console.log(todosDetails);

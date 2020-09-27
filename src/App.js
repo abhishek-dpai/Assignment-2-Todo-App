@@ -1,11 +1,16 @@
-  import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { COMPLETED } from './constants'
 import './App.css';
 //importing components
 import Form from "./components/Form"
 import TodoList from "./components/TodoList"
 function App() {
   //state
-  const [inputText, setInputText] = useState(" ");
+  //keep only combined results in parent and move unit details to respective functions
+  // ex: keep all todos in App
+  // and move input text to form
+
+  const [inputText, setInputText] = useState("");//you can keep it as empty string rather than adding space between quotes
   const [description, setDescription] = useState(" ");
   const [date, setDate] = useState(" ");
   const [priority, setPriority] = useState(" ");
@@ -25,7 +30,7 @@ function App() {
 
   const filterHandler = () => {
     switch (status) {
-      case "completed":
+      case COMPLETED:// create a constants file where all such strings will be present.
         setFilteredTodos(todos.filter((todo) => todo.completed === true))
         break;
       case "uncompleted":
@@ -42,7 +47,8 @@ function App() {
 
   }
   const getLocalTodos = () => {
-
+    // you can first create without usage of local storage, 
+    // once all functionalities work then work on persisiting data
     if (localStorage.getItem("todos") === null) {
       localStorage.setItem("todos", JSON.stringify([]));
     }
@@ -57,6 +63,8 @@ function App() {
       <header>
         <h1> Abhishek's Todo App </h1>
       </header>
+      {/* move the functions for setting data inside form component*/}
+      {/* pass only data ex: description, date, priority, etc. */}
       <Form 
         description={description}
         setDescription={setDescription}
@@ -70,7 +78,8 @@ function App() {
         todos={todos} 
         setTodos={setTodos} 
         inputText={inputText} 
-        setInputText={setInputText} />
+        setInputText={setInputText} 
+        />
       <TodoList 
         filteredTodos={filteredTodos} 
         todos={todos} 
