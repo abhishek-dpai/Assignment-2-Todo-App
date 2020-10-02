@@ -5,10 +5,10 @@ import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 function App() {
   //state
-  const [inputText, setInputText] = useState(" ");
+  const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
-  // status is the filter for all todo, competed or not, sorted by priority
+  // status is the filter for all todo, completed or not, sorted by priority(not implemented)
   const [filteredTodos, setFilteredTodos] = useState([]);
   useEffect(() => {
     getLocalTodos();
@@ -17,8 +17,8 @@ function App() {
     filterHandler();
     saveLocalTodos();
   }, [todos, status]);
-  //functions
 
+  //functions
   const filterHandler = () => {
     switch (status) {
       case "completed":
