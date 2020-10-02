@@ -44,6 +44,7 @@ form button:hover {
 .todo-popup-container {
   background-color: rgb(51, 92, 90);
   z-index: 10;
+  position: absolute;
 }
 .popup-form {
   display: flex;

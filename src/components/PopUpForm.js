@@ -41,6 +41,7 @@ class PopUpForm extends Component {
             name="priority"
             onChange={this.handleChange}
           >
+            {/* check whether 'Please Choose a Priority' can be kept as a placeholder instead, defalt value can be low or medium */}
             <option value="">-- Please Choose a Priority --</option>
             <option value="low">Low</option>
             <option value="medium">Medium</option>
