@@ -28,7 +28,7 @@ class PopUpForm extends Component {
             onChange={this.handleChange}
             placeholder="Description"
           />
-
+          <br />
           <input
             name="date"
             value={this.state.date}
@@ -36,6 +36,7 @@ class PopUpForm extends Component {
             placeholder="Date"
           />
 
+          <br />
           <select
             value={this.state.priority}
             name="priority"
@@ -47,6 +48,7 @@ class PopUpForm extends Component {
             <option value="high">High</option>
           </select>
 
+          <br />
           <button>Submit</button>
         </form>
         <hr />
