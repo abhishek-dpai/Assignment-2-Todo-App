@@ -1,46 +1,43 @@
-import React, { Component, useState } from "react";
+import React, { useState } from "react";
 
 function PopUpForm(props) {
+  const { id, details, setDetails } = props;
   const [description, setDescription] = useState("");
-  const [date, setDate] = useState("");
+  const [date, setTheDate] = useState("");
   const [priority, setPriority] = useState("");
 
   const handleDescriptionChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setDescription(value);
   };
   const handleDateChange = (event) => {
-    const { name, value } = event.target;
-    setDate(value);
+    const { value } = event.target;
+    setTheDate(value);
   };
   const handlePriorityChange = (event) => {
-    const { name, value } = event.target;
+    const { value } = event.target;
     setPriority(value);
+  };
+  const handleSubmit = () => {
+    setDetails([
+      ...details,
+      { id: id, description: description, date: date, priority: priority },
+    ]);
   };
 
   return (
     <main className="todo-popup-container">
       <form className="popup-form">
         <input
-          name="description"
           value={description}
           onChange={handleDescriptionChange}
           placeholder="Description"
         />
         <br />
-        <input
-          name="date"
-          value={date}
-          onChange={handleDateChange}
-          placeholder="Date"
-        />
+        <input value={date} onChange={handleDateChange} placeholder="Date" />
 
         <br />
-        <select
-          value={priority}
-          name="priority"
-          onChange={handlePriorityChange}
-        >
+        <select value={priority} onChange={handlePriorityChange}>
           <option value="">-- Please Choose a Priority --</option>
           <option value="low">Low</option>
           <option value="medium">Medium</option>
@@ -48,7 +45,7 @@ function PopUpForm(props) {
         </select>
 
         <br />
-        <button>Submit</button>
+        <button onClick={handleSubmit}>Submit</button>
       </form>
       <hr />
       <h2>Entered information:</h2>

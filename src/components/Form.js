@@ -11,6 +11,7 @@ const Form = (props) => {
     todos,
     setTodos,
     setStatus,
+    details,
     setDetails,
   } = props;
   const newId = Math.floor(Math.random() * 1000000); // there might be collision
@@ -47,7 +48,7 @@ const Form = (props) => {
       )}
        */}
       {showPopUp === true ? (
-        <PopUpForm id={newId} setDetails={setDetails} />
+        <PopUpForm id={newId} details={details} setDetails={setDetails} />
       ) : (
         ""
       )}

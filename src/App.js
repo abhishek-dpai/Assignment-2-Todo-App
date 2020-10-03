@@ -57,6 +57,7 @@ function App() {
         setTodos={setTodos}
         inputText={inputText}
         setInputText={setInputText}
+        details={details}
         setDetails={setDetails}
       />
       <TodoList
@@ -65,6 +66,7 @@ function App() {
         setTodos={setTodos}
         details={details}
       />
+      {/* {console.log(details.values)} */}
     </div>
   );
 }
