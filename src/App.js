@@ -5,9 +5,11 @@ import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 function App() {
   //state
+
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
+  const [details, setDetails] = useState([]);
   // status is the filter for all todo, completed or not, sorted by priority(not implemented)
   const [filteredTodos, setFilteredTodos] = useState([]);
   useEffect(() => {
@@ -55,11 +57,13 @@ function App() {
         setTodos={setTodos}
         inputText={inputText}
         setInputText={setInputText}
+        setDetails={setDetails}
       />
       <TodoList
         filteredTodos={filteredTodos}
         todos={todos}
         setTodos={setTodos}
+        details={details}
       />
     </div>
   );
