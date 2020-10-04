@@ -3,8 +3,6 @@ import PopUpForm from "./PopUpForm";
 const Form = (props) => {
   //props
   const [showPopUp, setShowPopUp] = useState(false);
-  const [clickedCounter, setClickedCounter] = useState(0);
-
   const {
     inputText,
     setInputText,
@@ -19,10 +17,9 @@ const Form = (props) => {
     setInputText(e.target.value);
   };
   const submitTodoHandler = (e) => {
-    console.log("newId=" + newId);
+    // console.log("newId=" + newId);
     e.preventDefault(); // stops browser from refreshing
     setTodos([...todos, { text: inputText, completed: false, id: newId }]);
-    setClickedCounter(clickedCounter + 1);
     setShowPopUp(true);
     setInputText("");
   };
@@ -40,17 +37,8 @@ const Form = (props) => {
       <button onClick={submitTodoHandler} className="todo-button" type="submit">
         <i className="fas fa-plus-square"></i>
       </button>
-      {/* 
-      {clickedCounter !== 0 ? (
-        <PopUpForm id={newId} setDetails={setDetails} />
-      ) : (
-        ""
-      )}
-       */}
-      {showPopUp === true ? (
+      {showPopUp === true && (
         <PopUpForm id={newId} details={details} setDetails={setDetails} />
-      ) : (
-        ""
       )}
       <div className="select">
         <select onChange={statusHandler} name="todos" className="filter-todo">

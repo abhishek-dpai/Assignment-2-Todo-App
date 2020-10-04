@@ -14,10 +14,12 @@ function App() {
   const [filteredTodos, setFilteredTodos] = useState([]);
   useEffect(() => {
     getLocalTodos();
+    getLocalDetails();
   }, []);
   useEffect(() => {
     filterHandler();
     saveLocalTodos();
+    saveLocalDetails();
   }, [todos, status]);
 
   //functions
@@ -46,6 +48,19 @@ function App() {
       setTodos(todoLocal);
     }
   };
+  const saveLocalDetails = () => {
+    localStorage.setItem("details", JSON.stringify(details));
+    console.log("size of details=", details.length);
+  };
+  const getLocalDetails = () => {
+    if (localStorage.getItem("details") === null) {
+      localStorage.setItem("details", JSON.stringify([]));
+    } else {
+      let detailsLocal = JSON.parse(localStorage.getItem("details"));
+      setDetails(detailsLocal);
+    }
+    console.log("size of details=", details.length);
+  };
   return (
     <div className="App">
       <header>
@@ -66,7 +81,6 @@ function App() {
         setTodos={setTodos}
         details={details}
       />
-      {/* {console.log(details.values)} */}
     </div>
   );
 }
