@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import DetailsForm from './DetailsForm'
 const Todo = (props) => {
-  const { id, text, todo, todos, setTodos, details } = props;
+  console.log("props are",props)
+
+  const {  text, todo: {id, ...todo}, todos, setTodos, details } = props; //id,
+  const [showDetails, setShowDetails] = useState(null)
   //events
   const deleteHandler = () => {
     setTodos(todos.filter((el) => el.id !== todo.id));
@@ -21,10 +25,17 @@ const Todo = (props) => {
   };
 
   const detailHandler = () => {
-    return <detailForm id={id} details="details" />;
+    console.log("called detail handler",id)
+    if(showDetails === id){
+      setShowDetails(null)
+    }else if(id){
+      setShowDetails(id)
+    }
+    // return <detailForm id={id} details="details" />;
   };
 
   return (
+    <>
     <div className="todo">
       <li className={`todo-item ${todo.completed ? "completed" : ""}`}>
         {text}
@@ -39,6 +50,10 @@ const Todo = (props) => {
         Details
       </button>
     </div>
+    {
+      showDetails ? <DetailsForm id={id} details={todo} /> : null
+    }
+    </>
   );
 };
 export default Todo;
