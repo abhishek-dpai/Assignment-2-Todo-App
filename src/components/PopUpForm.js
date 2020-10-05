@@ -27,7 +27,7 @@ function PopUpForm(props) {
 
   return (
     <main className="todo-popup-container">
-      <form className="popup-form">
+      <form className="popup-form" onSubmit={handleSubmit}>
         <input
           value={description}
           onChange={handleDescriptionChange}
@@ -45,7 +45,7 @@ function PopUpForm(props) {
         </select>
 
         <br />
-        <button onClick={handleSubmit}>Submit</button>
+        <button>Submit</button>
       </form>
       <hr />
       <h2>Entered information:</h2>
