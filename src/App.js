@@ -30,6 +30,9 @@ function App() {
       case "uncompleted":
         setFilteredTodos(todos.filter((todo) => todo.completed === false));
         break;
+      case "priority":
+        console.log("to be printed sorted by priority");
+        break;
       default:
         setFilteredTodos(todos);
         break;
