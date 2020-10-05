@@ -3,6 +3,7 @@ import PopUpForm from "./PopUpForm";
 const Form = (props) => {
   //props
   const [showPopUp, setShowPopUp] = useState(false);
+  const [newId] = useState(Math.floor(Math.random() * 1000000))
   const {
     inputText,
     setInputText,
@@ -12,7 +13,8 @@ const Form = (props) => {
     details,
     setDetails,
   } = props;
-  const newId = Math.floor(Math.random() * 1000000); // there might be collision
+  //every time on render it is creating newId, so description data and todo data had different ids
+  // const newId = Math.floor(Math.random() * 1000000); // there might be collision
   const inputTextHandler = (e) => {
     setInputText(e.target.value);
   };

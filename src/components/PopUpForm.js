@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 function PopUpForm(props) {
   const { id, details, setDetails } = props;
+  console.log("props in popup form are",props)
   const [description, setDescription] = useState("");
   const [date, setTheDate] = useState("");
   const [priority, setPriority] = useState("");
