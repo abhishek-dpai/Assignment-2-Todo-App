@@ -18,6 +18,20 @@ function PopUpForm(props) {
   const handlePriorityChange = (event) => {
     const { value } = event.target;
     setPriority(value);
+    switch (value) {
+      case "low":
+        setPrioriyNum(1);
+        break;
+      case "medium":
+        setPrioriyNum(2);
+        break;
+      case "high":
+        setPrioriyNum(3);
+        break;
+      default:
+        console.log(" default case reached in setPriority");
+        break;
+    }
   };
   const handleSubmit = () => {
     setDetails([
