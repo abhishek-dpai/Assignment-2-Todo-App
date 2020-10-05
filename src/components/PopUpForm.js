@@ -5,7 +5,7 @@ function PopUpForm(props) {
   const [description, setDescription] = useState("");
   const [date, setTheDate] = useState("");
   const [priority, setPriority] = useState("");
-
+  console.log("details in popUpForm=", details);
   const handleDescriptionChange = (event) => {
     const { value } = event.target;
     setDescription(value);
@@ -52,6 +52,7 @@ function PopUpForm(props) {
       <p>Entered Description: {description}</p>
       <p>Entered Date: {date}</p>
       <p>Choosed Priority: {priority}</p>
+      {/* <p>Details: {details}</p> */}
     </main>
   );
 }

@@ -3,7 +3,7 @@ import DetailsForm from "./DetailsForm";
 const Todo = (props) => {
   // console.log("props are", props);
 
-  const { text, todo, todos, setTodos, details, key } = props; //id,
+  const { text, todo, todos, setTodos, details } = props; //id,
   const [showDetails, setShowDetails] = useState(null);
   //events
   const deleteHandler = () => {

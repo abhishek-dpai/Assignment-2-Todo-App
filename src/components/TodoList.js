@@ -10,7 +10,7 @@ const TodoList = (props) => {
             todo={todo}
             todos={todos}
             setTodos={setTodos}
-            key={todo.id}
+            key={todo.id} //key is passed to remove the unique key warning
             text={todo.text}
             details={details}
           />
