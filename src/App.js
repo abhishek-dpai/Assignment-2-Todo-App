@@ -10,6 +10,7 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [details, setDetails] = useState([]);
+  const [priorityNum, setPrioriyNum] = useState(0);
   // status is the filter for all todo, completed or not, sorted by priority(not implemented)
   const [filteredTodos, setFilteredTodos] = useState([]);
   useEffect(() => {
@@ -30,6 +31,9 @@ function App() {
         break;
       case "uncompleted":
         setFilteredTodos(todos.filter((todo) => todo.completed === false));
+        break;
+      case "sorted":
+        console.log("Sorted hoga ab ok!!!!!!1");
         break;
       default:
         setFilteredTodos(todos);
@@ -62,7 +66,6 @@ function App() {
     console.log("size of details=", details.length);
   };
 
-
   return (
     <div className="App">
       <header>
@@ -76,6 +79,8 @@ function App() {
         setInputText={setInputText}
         details={details}
         setDetails={setDetails}
+        priorityNum={priorityNum}
+        setPrioriyNum={setPrioriyNum}
       />
       <TodoList
         filteredTodos={filteredTodos}

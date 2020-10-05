@@ -1,8 +1,16 @@
 import React, { useState } from "react";
 
 function PopUpForm(props) {
-  const { id, details, setDetails } = props;
-  console.log("props in popup form are",props)
+  const {
+    id,
+    details,
+    setDetails,
+    priorityNum,
+    setPrioriyNum,
+    todos,
+    setTodos,
+  } = props;
+  console.log("props in popup form are", props);
   const [description, setDescription] = useState("");
   const [date, setTheDate] = useState("");
   const [priority, setPriority] = useState("");
@@ -18,6 +26,27 @@ function PopUpForm(props) {
   const handlePriorityChange = (event) => {
     const { value } = event.target;
     setPriority(value);
+    switch (value) {
+      case "low":
+        setPrioriyNum(3);
+        break;
+      case "medium":
+        setPrioriyNum(2);
+        break;
+      case "high":
+        setPrioriyNum(1);
+        break;
+      default:
+        console.log(" default case reached in setPriority");
+        break;
+    }
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          return { ...todo, priorityNum: priorityNum };
+        }
+      })
+    );
   };
   const handleSubmit = () => {
     setDetails([
