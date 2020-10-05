@@ -33,7 +33,13 @@ function App() {
         setFilteredTodos(todos.filter((todo) => todo.completed === false));
         break;
       case "sorted":
+        setFilteredTodos(
+          todos.sort((a, b) => {
+            return a.id - b.id;
+          })
+        );
         console.log("Sorted hoga ab ok!!!!!!1");
+        console.log("new filtered todos=", filteredTodos);
         break;
       default:
         setFilteredTodos(todos);
