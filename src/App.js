@@ -5,7 +5,6 @@ import Form from "./components/Form";
 import TodoList from "./components/TodoList";
 function App() {
   //state
-
   const [inputText, setInputText] = useState("");
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
@@ -50,7 +49,7 @@ function App() {
   };
   const saveLocalDetails = () => {
     localStorage.setItem("details", JSON.stringify(details));
-    console.log("size of details=", details.length);
+    console.log("size of details in saveLocalDetails=", details.length);
   };
   const getLocalDetails = () => {
     if (localStorage.getItem("details") === null) {
@@ -59,7 +58,7 @@ function App() {
       let detailsLocal = JSON.parse(localStorage.getItem("details"));
       setDetails(detailsLocal);
     }
-    console.log("size of details=", details.length);
+    console.log("size of details after getLocalDetails=", details.length);
   };
   return (
     <div className="App">

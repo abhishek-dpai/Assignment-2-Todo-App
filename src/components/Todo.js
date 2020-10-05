@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import DetailsForm from "./DetailsForm";
 const Todo = (props) => {
-  // console.log("props are", props);
-
   const { text, todo, todos, setTodos, details } = props; //id,
   const [showDetails, setShowDetails] = useState(null);
   //events
@@ -18,20 +16,13 @@ const Todo = (props) => {
             completed: !item.completed,
           };
         }
-
         return item;
       })
     );
   };
-
   const detailHandler = () => {
-    // console.log("called detail handler", todo.id);
-
     setShowDetails(true);
-
-    // return <detailForm id={id} details="details" />;
   };
-
   return (
     <>
       <div className="todo">
