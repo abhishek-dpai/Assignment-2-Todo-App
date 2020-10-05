@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DetailsForm from "./DetailsForm";
 const Todo = (props) => {
   // console.log("props are", props);
 
   const { text, todo, todos, setTodos, details } = props; //id,
+
+  const { id : todoId } = todo||{}
+
+  console.log("Todo details in props are",details, "props are",props)
   const [showDetails, setShowDetails] = useState(null);
+  const [currentDetail,setCurrentDetail] = useState({})
   //events
   const deleteHandler = () => {
     setTodos(todos.filter((el) => el.id !== todo.id));
@@ -23,6 +28,16 @@ const Todo = (props) => {
       })
     );
   };
+
+  useEffect(()=>{
+    console.log("details in useEffect is",details, todoId)
+    const detail = details.find((item)=>{
+      // console.log("todoId is",todoId,"item is",item)
+      return item.id === todoId
+    })
+    // console.log("detail in useEffect is",detail)
+    setCurrentDetail(detail)
+  },[todoId, details])
 
   const detailHandler = () => {
     // console.log("called detail handler", todo.id);
@@ -48,7 +63,7 @@ const Todo = (props) => {
           Details
         </button>
       </div>
-      {showDetails ? <DetailsForm id={todo.id} details={details} /> : null}
+      {showDetails ? <DetailsForm id={todo.id} detail={currentDetail} /> : null}
     </>
   );
 };

@@ -20,7 +20,7 @@ function App() {
     filterHandler();
     saveLocalTodos();
     saveLocalDetails();
-  }, [todos, status]);
+  }, [todos, status, details]);
 
   //functions
   const filterHandler = () => {
@@ -61,6 +61,8 @@ function App() {
     }
     console.log("size of details=", details.length);
   };
+
+
   return (
     <div className="App">
       <header>
